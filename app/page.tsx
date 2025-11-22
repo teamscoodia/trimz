@@ -1,6 +1,7 @@
 // app/page.tsx
 import Link from 'next/link';
-import { employees, services, todaysSlots } from '@/lib/data';
+import Image from 'next/image';
+import { employees, todaysSlots } from '@/lib/data';
 
 export default function DashboardPage() {
   const totalRevenue = todaysSlots.reduce((sum, slot) => sum + (slot.amount ?? 0), 0);
@@ -64,8 +65,8 @@ export default function DashboardPage() {
               GROOMING.
             </div>
             <p className="hero-text">
-              Trimz combines sharp barbering with spa-level care. Centralize all bookings,
-              staff performance, and payments in one clean console.
+              Trimz combines sharp barbering with spa-level care. Centralize all
+              bookings, staff performance, and payments in one clean console.
             </p>
             <div className="hero-actions">
               <Link href="/booking" className="btn">
@@ -97,12 +98,32 @@ export default function DashboardPage() {
               return (
                 <div key={emp.id} className="service-card">
                   <div className="service-header">
-                    <div>
-                      <div className="service-name">{emp.name}</div>
-                      <div className="service-duration">{emp.role}</div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.7rem' }}>
+                      <div
+                        style={{
+                          position: 'relative',
+                          width: 40,
+                          height: 40,
+                          borderRadius: '999px',
+                          overflow: 'hidden',
+                          border: '1px solid var(--border-subtle)',
+                        }}
+                      >
+                        <Image
+                          src={emp.image}
+                          alt={emp.name}
+                          fill
+                          sizes="40px"
+                          style={{ objectFit: 'cover' }}
+                        />
+                      </div>
+                      <div>
+                        <div className="service-name">{emp.name}</div>
+                        <div className="service-duration">{emp.role}</div>
+                      </div>
                     </div>
                     <span className="chip chip-outline">
-                      {emp.type === 'Male' ? 'Gents' : 'Premium Care'}
+                      {emp.type === 'Male' ? 'Gents' : 'Premium'}
                     </span>
                   </div>
                   <div className="service-meta">

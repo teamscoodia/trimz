@@ -6,6 +6,7 @@ export interface Employee {
   name: string;
   role: string;
   type: 'Male' | 'Gay';
+  image: string;
 }
 
 export interface Service {
@@ -30,10 +31,10 @@ export interface TimeSlot {
 }
 
 export const employees: Employee[] = [
-  { id: 'pervaiz', name: 'Pervaiz', role: 'Senior Barber', type: 'Male' },
-  { id: 'fayyaz', name: 'Fayyaz', role: 'Senior Barber', type: 'Male' },
-  { id: 'jessica', name: 'Jessica', role: 'Spa & Care Expert', type: 'Gay' },
-  { id: 'francis', name: 'Francis', role: 'Spa & Care Expert', type: 'Gay' },
+  { id: 'pervaiz', name: 'Pervaiz', role: 'Senior Barber', type: 'Male', image: '/staff/pervaiz.jpg', },
+  { id: 'fayyaz', name: 'Fayyaz', role: 'Senior Barber', type: 'Male', image: '/staff/fayyaz.jpg', },
+  { id: 'jessica', name: 'Jessica', role: 'Spa & Care Expert', type: 'Gay', image: '/staff/jessica.jpg', },
+  { id: 'francis', name: 'Francis', role: 'Spa & Care Expert', type: 'Gay', image: '/staff/francis.jpg',}, 
 ];
 
 export const services: Service[] = [

@@ -1,4 +1,5 @@
 // app/admin/page.tsx
+import Image from 'next/image';
 import { employees, todaysSlots, services } from '@/lib/data';
 
 export default function AdminPage() {
@@ -42,7 +43,9 @@ export default function AdminPage() {
           <div className="stat-card">
             <span className="stat-label">Employees working</span>
             <span className="stat-value">{employees.length}</span>
-            <span className="stat-meta">Includes barber & premium care team</span>
+            <span className="stat-meta">
+              Includes barber & premium care team
+            </span>
           </div>
           <div className="stat-card">
             <span className="stat-label">Utilization</span>
@@ -61,7 +64,7 @@ export default function AdminPage() {
         <div className="surface">
           <h2 className="section-title">Employee revenue breakdown</h2>
           <p className="section-subtitle">
-            Per-employee sale for the full day: amount and how many appointments they
+            Per-employee sales for the full day: amount and how many appointments they
             handled.
           </p>
 
@@ -69,9 +72,29 @@ export default function AdminPage() {
             {perEmployee.map((emp) => (
               <div key={emp.id} className="service-card">
                 <div className="service-header">
-                  <div>
-                    <div className="service-name">{emp.name}</div>
-                    <div className="service-duration">{emp.role}</div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.7rem' }}>
+                    <div
+                      style={{
+                        position: 'relative',
+                        width: 40,
+                        height: 40,
+                        borderRadius: '999px',
+                        overflow: 'hidden',
+                        border: '1px solid var(--border-subtle)',
+                      }}
+                    >
+                      <Image
+                        src={emp.image}
+                        alt={emp.name}
+                        fill
+                        sizes="40px"
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </div>
+                    <div>
+                      <div className="service-name">{emp.name}</div>
+                      <div className="service-duration">{emp.role}</div>
+                    </div>
                   </div>
                   <span className="chip">
                     {emp.type === 'Male' ? 'Male services' : 'Premium care'}
@@ -128,7 +151,7 @@ export default function AdminPage() {
                   return (
                     <tr key={slot.id}>
                       <td>{emp.name}</td>
-                      <td>{emp.type}</td>
+                      <td>{emp.type === 'Male' ? 'Male' : 'Premium'}</td>
                       <td>
                         {slot.start}–{slot.end}
                       </td>
