@@ -31,8 +31,8 @@ export interface TimeSlot {
 
 export const employees: Employee[] = [
   { id: 'pervaiz', name: 'Pervaiz', role: 'Senior Barber', type: 'Male' },
-  { id: 'fayyaz', name: 'Fayyaz', role: 'Barber & Colorist', type: 'Male' },
-  { id: 'jessica', name: 'Jessica', role: 'Grooming Specialist', type: 'Gay' },
+  { id: 'fayyaz', name: 'Fayyaz', role: 'Senior Barber', type: 'Male' },
+  { id: 'jessica', name: 'Jessica', role: 'Spa & Care Expert', type: 'Gay' },
   { id: 'francis', name: 'Francis', role: 'Spa & Care Expert', type: 'Gay' },
 ];
 

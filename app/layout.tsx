@@ -49,7 +49,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
           <footer className="footer">
             <span>© {new Date().getFullYear()} Trimz Gents Saloon</span>
-            <span className="footer-muted">Owner / Manager Console · Static Demo</span>
           </footer>
         </div>
       </body>
